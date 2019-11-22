@@ -66,7 +66,7 @@ esp_err_t esp_https_ota(const esp_http_client_config_t *config)
     esp_ota_handle_t update_handle = 0;
     const esp_partition_t *update_partition = NULL;
     ESP_LOGI(TAG, "Starting OTA...");
-    update_partition = esp_ota_get_next_update_partition(NULL);
+    update_partition = esp_partition_find_first(ESP_PARTITION_TYPE_APP, ESP_PARTITION_SUBTYPE_APP_FACTORY, NULL);
     if (update_partition == NULL) {
         ESP_LOGE(TAG, "Passive OTA partition not found");
         http_cleanup(client);
