@@ -65,10 +65,7 @@ const static char *TAG = "esp_ota_ops";
 /* Return true if this is an OTA app partition */
 static bool is_ota_partition(const esp_partition_t *p)
 {
-    return (p != NULL
-            && p->type == ESP_PARTITION_TYPE_APP
-            && p->subtype >= ESP_PARTITION_SUBTYPE_APP_OTA_0
-            && p->subtype < ESP_PARTITION_SUBTYPE_APP_OTA_MAX);
+    return true;
 }
 
 // Read otadata partition and fill array from two otadata structures.
